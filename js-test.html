@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbulb test</title>
+    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <style>
+
+        .btnSet{
+            background-color: black;
+            color: white;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+
+        .detectArea{
+            border: 2px solid black;
+            width: 300px;
+            height: 300px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+        <img id="lightBulb" src="pic_bulboff.gif" alt="">
+    
+
+    <br>
+
+    <div>
+        <button class="btnSet" onclick="lightOnBtn()">Light on</button>
+        <button class="btnSet" onclick="lightOffBtn()">Light Off</button>
+    </div>
+
+    <br> 
+
+    <div>
+        <button class="btnSet" onclick="toggleBtn()">Light switch</button>
+    </div> 
+
+    <div class="detectArea">Floor</div>
+
+<script>
+
+        let lightBulb = document.getElementById("lightBulb");
+        let lightOn = document.getElementById("lightOn");
+        let lightOff = document.getElementById("lightOff");
+        let lightSwitch = document.getElementById("lightSwitch");
+        
+        function lightOnBtn(){
+            lightBulb.setAttribute("src","pic_bulbon.gif");
+        }
+
+        function lightOffBtn(){
+            lightBulb.setAttribute("src","pic_bulboff.gif");
+        }
+
+        function toggleBtn(){
+            if(lightBulb.getAttribute("src") == "pic_bulboff.gif"){
+                lightOnBtn();
+            }else{
+                lightOffBtn();
+            }
+        }
+
+        document.querySelector(".detectArea").addEventListener("mouseenter",function(){
+            lightOnBtn();
+            setTimeout(lightOffBtn,2000);
+        })
+
+</script>
